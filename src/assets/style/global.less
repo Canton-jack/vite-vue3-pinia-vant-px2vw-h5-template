@@ -1,0 +1,41 @@
+// 高亮
+@primary: #276ee9;
+
+@boxSpace: 12px; // 距离边界边距
+@headerH: 44px; // 头部高度
+@footerH: 200px; // 尾部高度
+@tabsH: 50px; // 底部tabs高度
+
+// assets图片引入
+.bgImage(@url) {
+  background: ~"url('@/assets/img/@{url}') no-repeat center";
+  background-size: 100% 100%;
+  vertical-align: middle;
+}
+
+// public图片引入
+.bgPublicImage(@url) {
+  background: ~"url('@p/statics/img/@{url}') no-repeat center";
+  background-size: 100% 100%;
+  vertical-align: middle;
+}
+
+// 安全区设置
+.safeArea() {
+  padding-bottom: constant(safe-area-inset-bottom) !important;
+  padding-bottom: env(safe-area-inset-bottom) !important;
+  padding-top: constant(safe-area-inset-top) !important;
+  padding-top: env(safe-area-inset-top) !important;
+  // padding: constant(safe-area-inset-top) constant(safe-area-inset-right) constant(safe-area-inset-bottom) constant(safe-area-inset-left) !important;
+  // padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left) !important;
+}
+
+// 超出几行超出部分省略号显示,默认2行
+.textEllipsis(@rows: 2) {
+  word-break: break-all;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: @rows; /* 这里是超出几行省略 */
+  overflow: hidden;
+}
